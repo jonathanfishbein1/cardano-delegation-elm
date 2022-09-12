@@ -1,5 +1,5 @@
 {
-    "name": "client",
+    "name": "cardano-delegation-elm",
     "private": true,
     "version": "1.0.0",
     "description": "",
@@ -7,13 +7,7 @@
     "scripts": {
         "development-delegate": "webpack serve --config delegation-webpack.config.js --open",
         "build-delegate": "NODE_ENV=production webpack build --config delegation-webpack.config.js",
-        "start-delegate": "npm run build-delegate && cp server.cjs distDelegate/ && cd distDelegate && node server.cjs",
-        "development-buy": "webpack serve --config buy-webpack.config.js --open",
-        "build-elevated-buy": "NODE_ENV=development webpack build --config buy-webpack.config.js --progress",
-        "start-elevated-buy": "npm run build-elevated-buy && cp server.cjs distBuy/ && cd distBuy && node server.cjs",
-        "build-buy": "NODE_ENV=production webpack build --config buy-webpack.config.js --progress",
-        "start-buy": "npm run build-buy && cp server.cjs distBuy/ && cd distBuy && node server.cjs",
-        "development-connect-wallet": "webpack serve --config connect-wallet-webpack.config.js --open"
+        "start-delegate": "npm run build-delegate && cp server.cjs dist/ && cd dist && node server.cjs"
     },
     "keywords": [],
     "author": "",

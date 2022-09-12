@@ -8,7 +8,7 @@ export default {
     mode: mode,
     entry: './delegation.ts',
     output: {
-        path: path.resolve(__dirname, 'distDelegate'),
+        path: path.resolve(__dirname, 'dist'),
         publicPath: '/',
         filename: '[contenthash].js',
         clean: true,
