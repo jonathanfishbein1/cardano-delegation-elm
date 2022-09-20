@@ -166,18 +166,24 @@ update msg model =
             ( RegisteringAndDelegating dropdownState p w account, registerAndDelegateToSumn account.stake_address )
 
         ( ReceiveRegisterAndDelegateStatus result, RegisteringAndDelegating dropdownState p w account ) ->
-            let
-                newModel : Model
-                newModel =
-                    if result then
-                        Connected dropdownState p w account DelegatingToSumn
+            if result then
+                let
+                    newModel : Model
+                    newModel =
+                        if result then
+                            Connected dropdownState p w account DelegatingToSumn
 
-                    else
-                        Connected dropdownState p w account NotDelegating
-            in
-            ( newModel
-            , Cmd.none
-            )
+                        else
+                            Connected dropdownState p w account NotDelegating
+                in
+                ( newModel
+                , Cmd.none
+                )
+
+            else
+                ( NullState
+                , Cmd.none
+                )
 
         ( DelegateToSumn, Connected dropdownState p w account DelegatingToOther ) ->
             ( Delegating dropdownState p w account, delegateToSumn account.stake_address )

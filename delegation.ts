@@ -99,6 +99,7 @@ app.ports.registerAndDelegateToSumn.subscribe(async rewardAddress => {
             : app.ports.receiveRegisterAndDelegateStatus.send(false)
     }
     catch (e) {
+        console.log(e)
         app.ports.receiveRegisterAndDelegateStatus.send(false)
     }
 })

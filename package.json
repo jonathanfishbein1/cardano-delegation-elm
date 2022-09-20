@@ -25,6 +25,6 @@
     "dependencies": {
         "buffer": "^6.0.3",
         "elm": "^0.19.1-5",
-        "lucid-cardano": "^0.5.9"
+        "lucid-cardano": "^0.6.0"
     }
 }
