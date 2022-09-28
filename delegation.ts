@@ -83,8 +83,8 @@ app.ports.connectWallet.subscribe(async supportedWallet => {
 app.ports.getAccountStatus.subscribe(async () => {
     const rewardAddress = await lucid.wallet.rewardAddress()
         , utils = new Lucid.Utils(lucid)
-        , { address: { address } } = utils.getAddressDetails(rewardAddress!)
-        , account = await fetch(`${blockfrostApi}/accounts/${(address)}/`
+        , { address: { bech32 } } = utils.getAddressDetails(rewardAddress!)
+        , account = await fetch(`${blockfrostApi}/accounts/${(bech32)}/`
             , { headers: { project_id: bk } })
             .then(res => res.json())
     console.log(account)
