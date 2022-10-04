@@ -3,12 +3,12 @@ import * as Wallet from '../connect-cardano-wallet-elm/wallet'
 var { Elm } = require('./src/Delegation.elm')
 
 const
-    sumnPoolId = "pool13dgxp4ph2ut5datuh5na4wy7hrnqgkj4fyvac3e8fzfqcc7qh0h",
-    bk = "testnetwIyK8IphOti170JCngH0NedP0yK8wBZs"
-    , blockfrostApi = 'https://cardano-testnet.blockfrost.io/api/v0'
+    sumnPoolId = "dc508ac7975e573adf6ef17873c74d200e0cd71931c139eb76853281",
+    bk = "mainnetU8uxziYphJfG9PTWWplZD2lEHMXbJHCX"
+    , blockfrostApi = 'https://cardano-mainnet.blockfrost.io/api/v0'
     , blockfrostClient = new Lucid.Blockfrost(blockfrostApi, bk)
     , lucid = await Lucid.Lucid.new(blockfrostClient,
-        'Testnet'),
+        'Mainnet'),
     // register = async rewardAddress => {
     //     const transaction =
     //         await lucid

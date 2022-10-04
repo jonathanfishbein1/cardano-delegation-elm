@@ -88,28 +88,14 @@ init ( walletsInstalledAndEnabledStrings, sumnPoolId ) =
                 walletsInstalledAndEnabled =
                     List.map ConnectWallet.decodeWallet walletsInstalledAndEnabledStrings
                         |> Maybe.Extra.values
+
+                ( newWalletModel, newWalletCmd ) =
+                    ConnectWallet.update ConnectWallet.ChooseWallet (ConnectWallet.NotConnectedButWalletsInstalledAndEnabled walletsInstalledAndEnabled)
             in
             ( WalletState sumnPoolId
-                (ConnectWallet.NotConnectedButWalletsInstalledAndEnabled walletsInstalledAndEnabled)
-            , Cmd.none
+                newWalletModel
+            , Cmd.map ConnectW newWalletCmd
             )
-
-
-
--- Just _ ->
---     let
---         walletsInstalled : List ConnectWallet.SupportedWallet
---         walletsInstalled =
---             List.map ConnectWallet.decodeWallet walletsInstalledStrings
---                 |> Maybe.Extra.values
---         ( newWalletModel, newWalletCmd ) =
---             ConnectWallet.update (ConnectWallet.OptionPicked enabledWallet) (ConnectWallet.ChoosingWallet walletsInstalled (Dropdown.init "wallet-dropdown") enabledWallet)
---     in
---     ( WalletState sumnPoolId newWalletModel, Cmd.map ConnectW newWalletCmd )
--- Nothing ->
---     ( WalletState sumnPoolId ConnectWallet.NotConnectedNotAbleTo
---     , Cmd.none
---     )
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -125,7 +111,9 @@ update msg model =
                     update GetAccountStatus (WalletState sumnPoolId newWalletModel)
 
                 _ ->
-                    ( WalletState sumnPoolId newWalletModel, Cmd.map ConnectW newWalletCmd )
+                    ( WalletState sumnPoolId newWalletModel
+                    , Cmd.map ConnectW newWalletCmd
+                    )
 
         ( ConnectW walletMsg, Connected walletModel sumnPoolId _ _ _ ) ->
             let
