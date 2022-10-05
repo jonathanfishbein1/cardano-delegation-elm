@@ -3,7 +3,7 @@ import * as Wallet from '../connect-cardano-wallet-elm/wallet'
 var { Elm } = require('./src/Delegation.elm')
 
 const
-    sumnPoolId = "dc508ac7975e573adf6ef17873c74d200e0cd71931c139eb76853281",
+    sumnPoolId = "pool1m3gg43uhtetn4hmw79u8836dyq8qe4cex8qnn6mks5egza7n6tp",
     bk = "mainnetU8uxziYphJfG9PTWWplZD2lEHMXbJHCX"
     , blockfrostApi = 'https://cardano-mainnet.blockfrost.io/api/v0'
     , blockfrostClient = new Lucid.Blockfrost(blockfrostApi, bk)
@@ -95,6 +95,7 @@ app.ports.getAccountStatus.subscribe(async () => {
 app.ports.registerAndDelegateToSumn.subscribe(async rewardAddress => {
     try {
         const txHash = await registerAndDelegate(rewardAddress)
+        console.log(txHash)
         txHash ? app.ports.receiveRegisterAndDelegateStatus.send(true)
             : app.ports.receiveRegisterAndDelegateStatus.send(false)
     }

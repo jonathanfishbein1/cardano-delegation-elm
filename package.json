@@ -7,7 +7,7 @@
     "scripts": {
         "development-delegate": "webpack serve --config delegation-webpack.config.js --open",
         "build-delegate": "NODE_ENV=production webpack build --config delegation-webpack.config.js",
-        "start-delegate": "npm run build-delegate && cp server.cjs dist/ && cd dist && node server.cjs"
+        "start-delegate": "npm run build-delegate && cd dist && http-server"
     },
     "keywords": [],
     "author": "",
@@ -25,6 +25,7 @@
     "dependencies": {
         "buffer": "^6.0.3",
         "elm": "^0.19.1-5",
+        "http-server": "^14.1.1",
         "lucid-cardano": "^0.6.0"
     }
 }
