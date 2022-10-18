@@ -3,6 +3,7 @@ module DelgetionTest exposing (suite)
 import ConnectWallet
 import Delegation
 import Dropdown
+import Element
 import Expect
 import Test
 import Test.Html.Query
@@ -18,7 +19,8 @@ suite =
                     initialModel : Delegation.Model
                     initialModel =
                         Delegation.WalletState ""
-                            (ConnectWallet.ConnectionEstablished [ ConnectWallet.Nami ]
+                            (ConnectWallet.ConnectionEstablished Element.none
+                                [ ConnectWallet.Nami ]
                                 (Dropdown.init "wallet-dropdown")
                                 (ConnectWallet.EnabledSupportedWallet ConnectWallet.Nami)
                             )
@@ -29,7 +31,8 @@ suite =
                 Expect.equal
                     newModel
                     (Delegation.GettingAcountStatus
-                        (ConnectWallet.ConnectionEstablished [ ConnectWallet.Nami ]
+                        (ConnectWallet.ConnectionEstablished Element.none
+                            [ ConnectWallet.Nami ]
                             (Dropdown.init "wallet-dropdown")
                             (ConnectWallet.EnabledSupportedWallet ConnectWallet.Nami)
                         )
@@ -42,7 +45,8 @@ suite =
                     initialModel : Delegation.Model
                     initialModel =
                         Delegation.GettingAcountStatus
-                            (ConnectWallet.ConnectionEstablished [ ConnectWallet.Nami ]
+                            (ConnectWallet.ConnectionEstablished Element.none
+                                [ ConnectWallet.Nami ]
                                 (Dropdown.init "wallet-dropdown")
                                 (ConnectWallet.EnabledSupportedWallet ConnectWallet.Nami)
                             )
@@ -59,7 +63,8 @@ suite =
                 Expect.equal
                     newModel
                     (Delegation.Connected
-                        (ConnectWallet.ConnectionEstablished [ ConnectWallet.Nami ]
+                        (ConnectWallet.ConnectionEstablished Element.none
+                            [ ConnectWallet.Nami ]
                             (Dropdown.init "wallet-dropdown")
                             (ConnectWallet.EnabledSupportedWallet ConnectWallet.Nami)
                         )
@@ -78,7 +83,8 @@ suite =
                     initialModel : Delegation.Model
                     initialModel =
                         Delegation.Connected
-                            (ConnectWallet.ConnectionEstablished [ ConnectWallet.Nami ]
+                            (ConnectWallet.ConnectionEstablished Element.none
+                                [ ConnectWallet.Nami ]
                                 (Dropdown.init "wallet-dropdown")
                                 (ConnectWallet.EnabledSupportedWallet ConnectWallet.Nami)
                             )
@@ -93,7 +99,7 @@ suite =
                 Expect.equal
                     newModel
                     (Delegation.RegisteringAndDelegating
-                        (ConnectWallet.ConnectionEstablished
+                        (ConnectWallet.ConnectionEstablished Element.none
                             [ ConnectWallet.Nami ]
                             (Dropdown.init "wallet-dropdown")
                             (ConnectWallet.EnabledSupportedWallet ConnectWallet.Nami)
@@ -112,7 +118,7 @@ suite =
                     initialModel : Delegation.Model
                     initialModel =
                         Delegation.RegisteringAndDelegating
-                            (ConnectWallet.ConnectionEstablished
+                            (ConnectWallet.ConnectionEstablished Element.none
                                 [ ConnectWallet.Nami ]
                                 (Dropdown.init "wallet-dropdown")
                                 (ConnectWallet.EnabledSupportedWallet ConnectWallet.Nami)
@@ -127,7 +133,8 @@ suite =
                 Expect.equal
                     newModel
                     (Delegation.Connected
-                        (ConnectWallet.ConnectionEstablished [ ConnectWallet.Nami ]
+                        (ConnectWallet.ConnectionEstablished Element.none
+                            [ ConnectWallet.Nami ]
                             (Dropdown.init "wallet-dropdown")
                             (ConnectWallet.EnabledSupportedWallet ConnectWallet.Nami)
                         )
@@ -146,7 +153,8 @@ suite =
                     initialModel : Delegation.Model
                     initialModel =
                         Delegation.Connected
-                            (ConnectWallet.ConnectionEstablished [ ConnectWallet.Nami ]
+                            (ConnectWallet.ConnectionEstablished Element.none
+                                [ ConnectWallet.Nami ]
                                 (Dropdown.init "wallet-dropdown")
                                 (ConnectWallet.EnabledSupportedWallet ConnectWallet.Nami)
                             )
@@ -161,7 +169,8 @@ suite =
                 Expect.equal
                     newModel
                     (Delegation.Undelegating
-                        (ConnectWallet.ConnectionEstablished [ ConnectWallet.Nami ]
+                        (ConnectWallet.ConnectionEstablished Element.none
+                            [ ConnectWallet.Nami ]
                             (Dropdown.init "wallet-dropdown")
                             (ConnectWallet.EnabledSupportedWallet ConnectWallet.Nami)
                         )
@@ -179,7 +188,8 @@ suite =
                     initialModel : Delegation.Model
                     initialModel =
                         Delegation.Undelegating
-                            (ConnectWallet.ConnectionEstablished [ ConnectWallet.Nami ]
+                            (ConnectWallet.ConnectionEstablished Element.none
+                                [ ConnectWallet.Nami ]
                                 (Dropdown.init "wallet-dropdown")
                                 (ConnectWallet.EnabledSupportedWallet ConnectWallet.Nami)
                             )
@@ -193,7 +203,8 @@ suite =
                 Expect.equal
                     newModel
                     (Delegation.Connected
-                        (ConnectWallet.ConnectionEstablished [ ConnectWallet.Nami ]
+                        (ConnectWallet.ConnectionEstablished Element.none
+                            [ ConnectWallet.Nami ]
                             (Dropdown.init "wallet-dropdown")
                             (ConnectWallet.EnabledSupportedWallet ConnectWallet.Nami)
                         )
@@ -212,7 +223,8 @@ suite =
                     initialModel : Delegation.Model
                     initialModel =
                         Delegation.Connected
-                            (ConnectWallet.ConnectionEstablished [ ConnectWallet.Nami ]
+                            (ConnectWallet.ConnectionEstablished Element.none
+                                [ ConnectWallet.Nami ]
                                 (Dropdown.init "wallet-dropdown")
                                 (ConnectWallet.EnabledSupportedWallet ConnectWallet.Nami)
                             )
@@ -227,7 +239,8 @@ suite =
                 Expect.equal
                     newModel
                     (Delegation.Delegating
-                        (ConnectWallet.ConnectionEstablished [ ConnectWallet.Nami ]
+                        (ConnectWallet.ConnectionEstablished Element.none
+                            [ ConnectWallet.Nami ]
                             (Dropdown.init "wallet-dropdown")
                             (ConnectWallet.EnabledSupportedWallet ConnectWallet.Nami)
                         )
@@ -245,7 +258,8 @@ suite =
                     initialModel : Delegation.Model
                     initialModel =
                         Delegation.Delegating
-                            (ConnectWallet.ConnectionEstablished [ ConnectWallet.Nami ]
+                            (ConnectWallet.ConnectionEstablished Element.none
+                                [ ConnectWallet.Nami ]
                                 (Dropdown.init "wallet-dropdown")
                                 (ConnectWallet.EnabledSupportedWallet ConnectWallet.Nami)
                             )
@@ -259,7 +273,8 @@ suite =
                 Expect.equal
                     newModel
                     (Delegation.Connected
-                        (ConnectWallet.ConnectionEstablished [ ConnectWallet.Nami ]
+                        (ConnectWallet.ConnectionEstablished Element.none
+                            [ ConnectWallet.Nami ]
                             (Dropdown.init "wallet-dropdown")
                             (ConnectWallet.EnabledSupportedWallet ConnectWallet.Nami)
                         )
@@ -274,7 +289,8 @@ suite =
                     initialModel : Delegation.Model
                     initialModel =
                         Delegation.GettingAcountStatus
-                            (ConnectWallet.ConnectionEstablished [ ConnectWallet.Nami ]
+                            (ConnectWallet.ConnectionEstablished Element.none
+                                [ ConnectWallet.Nami ]
                                 (Dropdown.init "wallet-dropdown")
                                 (ConnectWallet.EnabledSupportedWallet ConnectWallet.Nami)
                             )
@@ -299,7 +315,8 @@ suite =
                     initialModel : Delegation.Model
                     initialModel =
                         Delegation.Connected
-                            (ConnectWallet.ConnectionEstablished [ ConnectWallet.Nami ]
+                            (ConnectWallet.ConnectionEstablished Element.none
+                                [ ConnectWallet.Nami ]
                                 (Dropdown.init "wallet-dropdown")
                                 (ConnectWallet.EnabledSupportedWallet ConnectWallet.Nami)
                             )
@@ -323,7 +340,8 @@ suite =
                     initialModel : Delegation.Model
                     initialModel =
                         Delegation.Connected
-                            (ConnectWallet.ConnectionEstablished [ ConnectWallet.Nami ]
+                            (ConnectWallet.ConnectionEstablished Element.none
+                                [ ConnectWallet.Nami ]
                                 (Dropdown.init "wallet-dropdown")
                                 (ConnectWallet.EnabledSupportedWallet ConnectWallet.Nami)
                             )
@@ -347,7 +365,8 @@ suite =
                     initialModel : Delegation.Model
                     initialModel =
                         Delegation.Connected
-                            (ConnectWallet.ConnectionEstablished [ ConnectWallet.Nami ]
+                            (ConnectWallet.ConnectionEstablished Element.none
+                                [ ConnectWallet.Nami ]
                                 (Dropdown.init "wallet-dropdown")
                                 (ConnectWallet.EnabledSupportedWallet ConnectWallet.Nami)
                             )
@@ -371,7 +390,8 @@ suite =
                     initialModel : Delegation.Model
                     initialModel =
                         Delegation.RegisteringAndDelegating
-                            (ConnectWallet.ConnectionEstablished [ ConnectWallet.Nami ]
+                            (ConnectWallet.ConnectionEstablished Element.none
+                                [ ConnectWallet.Nami ]
                                 (Dropdown.init "wallet-dropdown")
                                 (ConnectWallet.EnabledSupportedWallet ConnectWallet.Nami)
                             )
@@ -397,7 +417,8 @@ suite =
                     initialModel : Delegation.Model
                     initialModel =
                         Delegation.Delegating
-                            (ConnectWallet.ConnectionEstablished [ ConnectWallet.Nami ]
+                            (ConnectWallet.ConnectionEstablished Element.none
+                                [ ConnectWallet.Nami ]
                                 (Dropdown.init "wallet-dropdown")
                                 (ConnectWallet.EnabledSupportedWallet ConnectWallet.Nami)
                             )

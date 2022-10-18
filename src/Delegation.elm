@@ -90,7 +90,18 @@ init ( walletsInstalledAndEnabledStrings, sumnPoolId ) =
                         |> Maybe.Extra.values
 
                 ( newWalletModel, newWalletCmd ) =
-                    ConnectWallet.update ConnectWallet.ChooseWallet (ConnectWallet.NotConnectedButWalletsInstalledAndEnabled walletsInstalledAndEnabled)
+                    ConnectWallet.update ConnectWallet.ChooseWallet
+                        (ConnectWallet.NotConnectedButWalletsInstalledAndEnabled
+                            (Element.image
+                                [ Element.width (Element.px 200)
+                                , Element.height (Element.px 50)
+                                ]
+                                { src = "./select wallet.png"
+                                , description = "select wallet"
+                                }
+                            )
+                            walletsInstalledAndEnabled
+                        )
             in
             ( WalletState sumnPoolId
                 newWalletModel
@@ -107,7 +118,7 @@ update msg model =
                     ConnectWallet.update walletMsg walletModel
             in
             case newWalletModel of
-                ConnectWallet.ConnectionEstablished _ _ _ ->
+                ConnectWallet.ConnectionEstablished _ _ _ _ ->
                     update GetAccountStatus (WalletState sumnPoolId newWalletModel)
 
                 _ ->
@@ -122,8 +133,8 @@ update msg model =
             in
             ( WalletState sumnPoolId newWalletModel, Cmd.map ConnectW newWalletCmd )
 
-        ( GetAccountStatus, WalletState sumnPoolId (ConnectWallet.ConnectionEstablished walletsInstalled dropdownState w) ) ->
-            ( GettingAcountStatus (ConnectWallet.ConnectionEstablished walletsInstalled dropdownState w) sumnPoolId w, getAccountStatus () )
+        ( GetAccountStatus, WalletState sumnPoolId (ConnectWallet.ConnectionEstablished selectWalletElement walletsInstalled dropdownState w) ) ->
+            ( GettingAcountStatus (ConnectWallet.ConnectionEstablished selectWalletElement walletsInstalled dropdownState w) sumnPoolId w, getAccountStatus () )
 
         ( ReceiveAccountStatus account, GettingAcountStatus dropdownState sumnPoolId wallet ) ->
             ( case account of
