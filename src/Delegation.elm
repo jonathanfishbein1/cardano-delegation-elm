@@ -5,7 +5,11 @@ port module Delegation exposing
     , Msg(..)
     , PoolId
     , TransactionSuccessStatus
+    , decodeAccount
+    , getAccountStatus
     , main
+    , receiveAccountStatus
+    , subscriptions
     , update
     , view
     )
