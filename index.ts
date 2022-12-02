@@ -44,7 +44,7 @@ app.ports.getAccountStatus.subscribe(async () => {
 app.ports.registerAndDelegateToSumn.subscribe(async rewardAddress => {
     try {
         console.log('here')
-        const txHash = await Delegation.registerAndDelegate(lucid, rewardAddress)
+        const txHash = await Delegation.registerAndDelegate(lucid, rewardAddress, sumnPoolId)
         console.log(txHash)
         txHash ? app.ports.receiveRegisterAndDelegateStatus.send(true)
             : app.ports.receiveRegisterAndDelegateStatus.send(false)
@@ -57,7 +57,7 @@ app.ports.registerAndDelegateToSumn.subscribe(async rewardAddress => {
 
 app.ports.delegateToSumn.subscribe(async rewardAddress => {
     try {
-        const txHash = await Delegation.delegate(lucid, rewardAddress)
+        const txHash = await Delegation.delegate(lucid, rewardAddress, sumnPoolId)
         txHash ? app.ports.receiveDelegateToSumnStatus.send(true)
             : app.ports.receiveDelegateToSumnStatus.send(false)
     }

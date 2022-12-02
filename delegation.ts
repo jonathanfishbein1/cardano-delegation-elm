@@ -1,25 +1,10 @@
 import * as Lucid from 'lucid-cardano'
-
 const
-    sumnPoolId = "pool1m3gg43uhtetn4hmw79u8836dyq8qe4cex8qnn6mks5egza7n6tp",
-    // register = async rewardAddress => {
-    //     const transaction =
-    //         await lucid
-    //             .newTx()
-    //             .registerStake(rewardAddress)
-    //             .complete()
-    //         , signedTx = await transaction
-    //             .sign()
-    //             .complete()
-    //         , transactionHash = await signedTx
-    //             .submit()
-    //     return transactionHash
-    // },
-    delegate = async (lucid, rewardAddress) => {
+    register = async (lucid: Lucid.Lucid, rewardAddress) => {
         const transaction =
             await lucid
                 .newTx()
-                .delegateTo(rewardAddress, sumnPoolId)
+                .registerStake(rewardAddress)
                 .complete()
             , signedTx = await transaction
                 .sign()
@@ -28,7 +13,20 @@ const
                 .submit()
         return transactionHash
     },
-    deregister = async (lucid, rewardAddress) => {
+    delegate = async (lucid: Lucid.Lucid, rewardAddress, poolId) => {
+        const transaction =
+            await lucid
+                .newTx()
+                .delegateTo(rewardAddress, poolId)
+                .complete()
+            , signedTx = await transaction
+                .sign()
+                .complete()
+            , transactionHash = await signedTx
+                .submit()
+        return transactionHash
+    },
+    deregister = async (lucid: Lucid.Lucid, rewardAddress) => {
         const transaction =
             await lucid
                 .newTx()
@@ -41,13 +39,17 @@ const
                 .submit()
         return transactionHash
     }
-    , registerAndDelegate = async (lucid, rewardAddress) => {
-        const transaction =
+    , registerAndDelegate = async (lucid: Lucid.Lucid, rewardAddress, poolId) => {
+        const registerTransaction =
             await lucid
                 .newTx()
                 .registerStake(rewardAddress)
-                .delegateTo(rewardAddress, sumnPoolId)
-                .complete()
+            , delegateTransaction =
+                await lucid
+                    .newTx()
+                    .delegateTo(rewardAddress, poolId)
+            , transaction =
+                await delegateTransaction.compose(registerTransaction).complete()
             , signedTx = await transaction
                 .sign()
                 .complete()
@@ -57,6 +59,7 @@ const
     }
 
 export {
+    register,
     delegate,
     registerAndDelegate,
     deregister
