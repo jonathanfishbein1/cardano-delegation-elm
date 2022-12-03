@@ -7,6 +7,7 @@ port module Delegation exposing
     , TransactionSuccessStatus
     , decodeAccount
     , getAccountStatus
+    , init
     , main
     , receiveAccountStatus
     , subscriptions
@@ -226,8 +227,8 @@ update msg model =
             ( model, Cmd.none )
 
 
-view : Model -> Html.Html Msg
-view model =
+view : Element.Color -> Model -> Html.Html Msg
+view fontColor model =
     let
         id : Element.Attribute msg
         id =
@@ -235,7 +236,7 @@ view model =
     in
     case model of
         WalletState _ ws ->
-            Html.map ConnectW (ConnectWallet.view (Element.rgb255 0 0 0) ws)
+            Html.map ConnectW (ConnectWallet.view fontColor ws)
 
         GettingAcountStatus _ _ _ ->
             Element.layout []
@@ -409,7 +410,7 @@ main =
     Browser.element
         { init = init
         , update = update
-        , view = view
+        , view = view (Element.rgb255 200 200 200)
         , subscriptions = subscriptions
         }
 

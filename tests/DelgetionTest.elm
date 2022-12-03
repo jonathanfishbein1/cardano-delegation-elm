@@ -297,7 +297,7 @@ suite =
                             ""
                             (ConnectWallet.EnabledSupportedWallet ConnectWallet.Nami)
                 in
-                Test.Html.Query.fromHtml (Delegation.view initialModel)
+                Test.Html.Query.fromHtml (Delegation.view (Element.rgb255 200 200 200) initialModel)
                     |> Test.Html.Query.find [ Test.Html.Selector.id "delegationButton" ]
                     |> Test.Html.Query.has
                         [ Test.Html.Selector.all
@@ -325,7 +325,7 @@ suite =
                             account
                             Delegation.NotDelegating
                 in
-                Test.Html.Query.fromHtml (Delegation.view initialModel)
+                Test.Html.Query.fromHtml (Delegation.view (Element.rgb255 200 200 200) initialModel)
                     |> Test.Html.Query.find [ Test.Html.Selector.id "delegationButton" ]
                     |> Test.Html.Query.has
                         [ Test.Html.Selector.text "Register and Delegate"
@@ -350,7 +350,7 @@ suite =
                             account
                             Delegation.DelegatingToOther
                 in
-                Test.Html.Query.fromHtml (Delegation.view initialModel)
+                Test.Html.Query.fromHtml (Delegation.view (Element.rgb255 200 200 200) initialModel)
                     |> Test.Html.Query.find [ Test.Html.Selector.id "delegationButton" ]
                     |> Test.Html.Query.has
                         [ Test.Html.Selector.text "Delegate"
@@ -375,7 +375,7 @@ suite =
                             account
                             Delegation.DelegatingToSumn
                 in
-                Test.Html.Query.fromHtml (Delegation.view initialModel)
+                Test.Html.Query.fromHtml (Delegation.view (Element.rgb255 200 200 200) initialModel)
                     |> Test.Html.Query.find [ Test.Html.Selector.id "delegationButton" ]
                     |> Test.Html.Query.has
                         [ Test.Html.Selector.text "Undelegate"
@@ -399,7 +399,7 @@ suite =
                             (ConnectWallet.EnabledSupportedWallet ConnectWallet.Nami)
                             account
                 in
-                Test.Html.Query.fromHtml (Delegation.view initialModel)
+                Test.Html.Query.fromHtml (Delegation.view (Element.rgb255 200 200 200) initialModel)
                     |> Test.Html.Query.find [ Test.Html.Selector.id "delegationButton" ]
                     |> Test.Html.Query.has
                         [ Test.Html.Selector.all
@@ -426,7 +426,7 @@ suite =
                             (ConnectWallet.EnabledSupportedWallet ConnectWallet.Nami)
                             account
                 in
-                Test.Html.Query.fromHtml (Delegation.view initialModel)
+                Test.Html.Query.fromHtml (Delegation.view (Element.rgb255 200 200 200) initialModel)
                     |> Test.Html.Query.find [ Test.Html.Selector.id "delegationButton" ]
                     |> Test.Html.Query.has
                         [ Test.Html.Selector.all
