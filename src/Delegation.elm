@@ -5,6 +5,7 @@ port module Delegation exposing
     , Msg(..)
     , PoolId
     , TransactionSuccessStatus
+    , buttonHoverColor
     , decodeAccount
     , getAccountStatus
     , init

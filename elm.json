@@ -2,7 +2,7 @@
     "type": "application",
     "source-directories": [
         "src",
-        "/home/jonathan/Documents/connect-cardano-wallet-elm/src"
+        "../connect-cardano-wallet-elm/src"
     ],
     "elm-version": "0.19.1",
     "dependencies": {
