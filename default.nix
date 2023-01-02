@@ -10,7 +10,7 @@ let
   };
   connect-cardano-wallet-elm = import ../connect-cardano-wallet-elm { };
 in
-pkgs.stdenv.mkDerivation {
+pkgs.stdenv.mkDerivation rec {
   name = "cardano-delegation-elm";
   src = pkgs.lib.cleanSource ./.;
 
@@ -26,10 +26,10 @@ pkgs.stdenv.mkDerivation {
 
   patchPhase = ''
     rm -rf elm-stuff
-    echo hellow
+    
     mkdir -p ./${connect-cardano-wallet-elm.name}
-    ls ${connect-cardano-wallet-elm}/${connect-cardano-wallet-elm.name}
     cp -r ${connect-cardano-wallet-elm}/${connect-cardano-wallet-elm.name} ../${connect-cardano-wallet-elm.name}
+    
     ln -s ${yarnPkg}/libexec/${yarnPkg.name}/node_modules ./node_modules
     export PATH="${yarnPkg}/bin:$PATH"
   '';
@@ -42,6 +42,8 @@ pkgs.stdenv.mkDerivation {
 
   installPhase = ''
     mkdir -p $out
+    mkdir -p $out/${name}/src
+    cp ./src/Delegation.elm $out/${name}/src
     yarn --offline build-delegate
     cp -r ./dist $out
   '';
