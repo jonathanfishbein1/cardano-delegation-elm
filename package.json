@@ -26,6 +26,6 @@
         "buffer": "^6.0.3",
         "elm": "^0.19.1-5",
         "http-server": "^14.1.1",
-        "lucid-cardano": "^0.8.4"
+        "lucid-cardano": "^0.8.8"
     }
 }

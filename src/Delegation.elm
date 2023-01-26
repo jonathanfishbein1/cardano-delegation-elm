@@ -18,7 +18,6 @@ port module Delegation exposing
 
 import Browser
 import ConnectWallet
-import Dropdown
 import Element
 import Element.Background
 import Element.Border
