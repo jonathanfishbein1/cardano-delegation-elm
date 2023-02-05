@@ -49,7 +49,7 @@ const
                     .newTx()
                     .delegateTo(rewardAddress, poolId)
             , transaction =
-                await delegateTransaction.compose(registerTransaction).complete()
+                await registerTransaction.compose(delegateTransaction).complete()
             , signedTx = await transaction
                 .sign()
                 .complete()
