@@ -5,8 +5,8 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1675471628,
-        "narHash": "sha256-saHjonIhvE7ZNxQ2S8bq0hy30VuPY3VxbFp/eoWw9AU=",
+        "lastModified": 1676869002,
+        "narHash": "sha256-KjkoNvp5AdXURsTOOu9hAmideshhf++omeXc7uLLuXk=",
         "path": "/home/jonathan/Documents/connect-cardano-wallet-elm/",
         "type": "path"
       },
@@ -31,11 +31,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1675309347,
-        "narHash": "sha256-D3CQ6HRDT2m3XJlrzb5jKq4vNFR5xFTEFKC7iSjlFpM=",
+        "lastModified": 1676790509,
+        "narHash": "sha256-W9uWAWokgS8US8rJf79qBLS2M+ZgIscfoz+KsNE7VGQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "006c3bd4dd2f5d1d2094047f307cbf9e2b73d9c5",
+        "rev": "a1291d0d020a200c7ce3c48e96090bfa4890a475",
         "type": "github"
       },
       "original": {
